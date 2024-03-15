@@ -62,7 +62,7 @@ def user_input(user_question, chat_history):
     response = chain({"input_documents": docs, "question": user_question}, return_only_outputs=True)
 
     chat_history.append({"question": user_question, "answer": response["output_text"]})
-    return response["output_text"], chat_history
+    return response["output_text"], chat_history[::-1]
 
 
 def main():
